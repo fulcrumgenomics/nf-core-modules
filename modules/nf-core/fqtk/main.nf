@@ -32,9 +32,5 @@ process FQTK {
             --output output/ \\
             --sample-metadata ${sample_sheet} \\
             ${args}
-    //cat <<-END_VERSIONS > versions.yml
-    //"${task.process}":
-    //    sgdemux: \$(echo \$(sgdemux --version 2>&1) | cut -d " " -f2)
-    //END_VERSIONS
     """
 }
