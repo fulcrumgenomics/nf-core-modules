@@ -4,42 +4,30 @@
     - fqtk
   files:
     - path: output/fqtk/output/B-cereus_100ng_input-rep10.R1.fq.gz
-      md5sum: 6968ed977fbf66f3103677c842cd66b7
+      md5sum: fc36d3818ea5b79d0144176baab86e63
     - path: output/fqtk/output/B-cereus_100ng_input-rep11.R1.fq.gz
-      md5sum: 8a36f85a6e05880191a889ab06f63e01
+      md5sum: 9400c0a1164c83cb2da938e48363c757
     - path: output/fqtk/output/B-cereus_100ng_input-rep12.R1.fq.gz
-      md5sum: 9fbeef4c4af0285230f27865752c64fd
-    - path: output/fqtk/output/B-cereus_1ng_input-rep07.R1.fq.gz
-      md5sum: 4d63e260afc3b269565dea5198dc096a
-    - path: output/fqtk/output/B-cereus_1ng_input-rep08.R1.fq.gz
-      md5sum: a57c8060647418f638cb9df58f8ca5ac
+      md5sum: c50bb3b10af30e865343648c65ac8a6f
     - path: output/fqtk/output/B-cereus_1ng_input-rep09.R1.fq.gz
-      md5sum: dac5d5b67745911d18cf7c18c160c132
-    - path: output/fqtk/output/E-coli_100ng_input-rep04.R1.fq.gz
-      md5sum: 81e1013769110b5710821d741414f68c
-    - path: output/fqtk/output/E-coli_100ng_input-rep05.R1.fq.gz
-      md5sum: 25fb1265ebc1424cb4a5f3017457a224
-    - path: output/fqtk/output/E-coli_100ng_input-rep06.R1.fq.gz
-      md5sum: a2b86c6637d20cea8b27c00cc3bf8154
+      md5sum: 7c308fa8bf2ed10b1de700221d899397
     - path: output/fqtk/output/E-coli_1ng_input-rep01.R1.fq.gz
-      md5sum: 33d0026b861cfbfbd96b9cc3789949c0
+      md5sum: 1f8f17ed5db00da57595557244ed1707
     - path: output/fqtk/output/E-coli_1ng_input-rep02.R1.fq.gz
-      md5sum: 46e6dc942f17833abce029060c6c9bfe
-    - path: output/fqtk/output/E-coli_1ng_input-rep03.R1.fq.gz
-      md5sum: 87432a1eccb130a2254f1950ed2e43cd
+      md5sum: 0ddaa2aefd91528e46da8c3fecd462fd
     - path: output/fqtk/output/R-sphaeroides_100ng_input-rep16.R1.fq.gz
-      md5sum: cb23dda293fa9c205df049f4043c8c56
+      md5sum: 14adcf8bc3afb13d40f9e61b3fe5bf70
     - path: output/fqtk/output/R-sphaeroides_100ng_input-rep17.R1.fq.gz
-      md5sum: 89710b435b3696200e16b1eecccc2b7d
+      md5sum: 3b8e305a9cdb87ed742ad6b0ddeba544
     - path: output/fqtk/output/R-sphaeroides_100ng_input-rep18.R1.fq.gz
-      md5sum: 4a4a73e49d25664ff1651c9385e5c7d7
+      md5sum: d6f5bd032bb2bb10284828c09719162a
     - path: output/fqtk/output/R-sphaeroides_1ng_input-rep13.R1.fq.gz
-      md5sum: dc53fb6a82b1fe6337ee9946472dc125
+      md5sum: 3eb2988b2582013a16d341ae166deaba
     - path: output/fqtk/output/R-sphaeroides_1ng_input-rep14.R1.fq.gz
-      md5sum: 927329a2f988883b517a5d3d5fb635e5
+      md5sum: 12a3020bb6738af47f2ccf72657bcbb0
     - path: output/fqtk/output/R-sphaeroides_1ng_input-rep15.R1.fq.gz
-      md5sum: 33d881987f5339a64927b3d6674bea28
+      md5sum: afbd220c8d669892e5b9395161401883
     - path: output/fqtk/output/demux-metrics.txt
-      md5sum: a6ca319ec505f8f8aada50b4c14e94cb
+      md5sum: 07cbfe1db2f75a610a0ba40aa4bf979d
     - path: output/fqtk/output/unmatched.R1.fq.gz
-      md5sum: a5592a395996b0eb9f4cb087b0a308ea
+      md5sum: 34070cafdb5c516254950e85b66a5a14
