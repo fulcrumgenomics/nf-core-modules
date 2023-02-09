@@ -3,13 +3,10 @@ process FQTK {
     label 'process_high'
 
     conda "bioconda::fqtk=0.2.0"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/fqtk:0.2.0--h9f5acd7_0' :
-        'quay.io/biocontainers/fqtk:0.2.0--h9f5acd7_0' }"
 
     input:
-    tuple val(meta), path(sample_sheet), path(fastq_files), val(read) // from sgdemux and bases2fastq
-
+    tuple val(meta), path(sample_sheet), path(read_structure_manifest)
+    val(fastq_readstructure_pairs)
 
     output:
     tuple val(meta), path('output/*R*.fq.gz')                       , emit: sample_fastq
@@ -26,11 +23,14 @@ process FQTK {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     def VERSION = '0.2.0'
+    fastqs = fastq_readstructure_pairs.collect{it[2]/it[0]}.join(" ")
+    read_structures = fastq_readstructure_pairs.collect{it[1]}.join(" ")
+
     """
     fqtk \\
         demux \\
-            --inputs ${fastq_files} \\
-            --read-structures ${read} \\
+            --inputs ${fastqs} \\
+            --read-structures ${read_structures} \\
             --output-types T \\
             --output output/ \\
             --sample-metadata ${sample_sheet} \\
@@ -41,3 +41,4 @@ process FQTK {
     END_VERSIONS
     """
 }
+
