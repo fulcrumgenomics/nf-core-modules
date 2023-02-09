@@ -1,16 +1,14 @@
 name: "fqtk"
-## TODO nf-core: Add a description of the module and list keywords
-description: write your description here
+description: Demultiplex fastq files
 keywords:
-  - sort
+  - demultiplex
+  - fastq
 tools:
   - "fqtk":
-      ## TODO nf-core: Add a description and other details for the software below
-      description: "A toolkit for working with FASTQ files."
-      homepage: "None"
-      documentation: "None"
+      description: "A toolkit for working with FASTQ files, written in Rust."
+      homepage: "https://github.com/fulcrumgenomics/fqtk"
+      documentation: "https://github.com/fulcrumgenomics/fqtk"
       tool_dev_url: "None"
-      doi: ""
       licence: "['MIT']"
 
 input:
@@ -21,34 +19,41 @@ input:
         e.g. [ id:'test', single_end:false ]
   - sample_sheet:
       type: file
-      description: RunManifest file
-      pattern: "*.{csv}"
-  - fastq_files:
+      description: Tsv file, with two columns sample_id and barcode
+      pattern: "*.{tsv}"
+  - read_structure_manifest:
       type: file
-      description: "TODO"
-      pattern: "*.{fastq.gz}"
-  - read:
-      type: val
-      description: "Read Structures"
+      description: Csv file mapping fastq's to read structures - necessary headers fastq and read_structure
+      pattern: "*.{csv}"
+  - fastqs:
+      type: list
+      description: List of tuples i.e. [[fastq:*fastq.gz, read_structure:151T, absolute_path:path/to/fastqs],...]
 
-## TODO nf-core: Add a description of all of the variables used as output
+
 output:
-  #Only when we have meta
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. [ id:'test', single_end:false ]
-  #
   - versions:
       type: file
       description: File containing software versions
       pattern: "versions.yml"
-  ## TODO nf-core: Delete / customise this example output
-  - bam:
+  - sample_fastq:
       type: file
-      description: Sorted BAM/CRAM/SAM file
-      pattern: "*.{bam,cram,sam}"
+      description: Demultiplexed per-sample FASTQ files
+      pattern: "output/*R*.fastq.gz"
+  - metrics:
+      type: file
+      description: |
+        Demultiplexing summary stats; sample_id, barcode templates, frac_templates, ratio_to_mean, ratio_to_best
+      pattern: "output/demux-metrics.txt"
+  - most_frequent_unmatched:
+    type: file
+    description: |
+      File containing unmatched fastq records
+    pattern: "output/unmatched*.fq.gz"
 
 authors:
-  - "@samfulcrum"
+  - "Samantha White @samfulcrum"
