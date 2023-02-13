@@ -3,6 +3,9 @@ process FQTK {
     label 'process_high'
 
     conda "bioconda::fqtk=0.2.0"
+    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
+        'https://depot.galaxyproject.org/singularity/fqtk:0.2.0--h9f5acd7_0' :
+        'quay.io/biocontainers/fqtk:0.2.0--h9f5acd7_0' }"
 
     input:
     tuple val(meta), path(sample_sheet), path(read_structure_manifest)
