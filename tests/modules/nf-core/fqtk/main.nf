@@ -7,8 +7,7 @@ include { UNTAR   } from '../../../../modules/nf-core/untar/main.nf'
 
 workflow test_fqtk {  
     def input = Channel.of ([ [ id:'sim-data'], // meta map
-            file("https://raw.githubusercontent.com/fulcrumgenomics/nf-core-test-datasets/fqtk/testdata/sim-data/fqtk_sample_metadata_subset.tsv", checkIfExists: true),
-            file("https://raw.githubusercontent.com/fulcrumgenomics/nf-core-test-datasets/fqtk/testdata/sim-data/read_structure_manifest.csv", checkIfExists: true)
+            file("https://raw.githubusercontent.com/fulcrumgenomics/nf-core-test-datasets/fqtk/testdata/sim-data/fqtk_sample_metadata_subset.tsv", checkIfExists: true)
     ])
 
     def fastqs = Channel
@@ -23,7 +22,9 @@ workflow test_fqtk {
         ]).untar.collect{it[1]}
     ).toList()
 
-    FQTK ( input, fastqs_with_paths )
+    ch_input = input.join(UNTAR.out.untar)
+
+    FQTK ( ch_input, fastqs_with_paths )
 }
 
 
