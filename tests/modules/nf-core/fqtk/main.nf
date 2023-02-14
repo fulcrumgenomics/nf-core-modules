@@ -18,7 +18,7 @@ workflow test_fqtk {
     def fastqs_with_paths = fastqs.combine(
         UNTAR ([
             [ id:'sim-data' ],
-            file("https://github.com/fulcrumgenomics/nf-core-test-datasets/blob/fqtk/testdata/sim-data/fqtk_subset_fastqs.tar.gz?raw=true", checkIfExists: true)
+            file("https://github.com/fulcrumgenomics/nf-core-test-datasets/blob/fqtk/testdata/sim-data/fqtk_subset_fastqs.tar.gz", checkIfExists: true)
         ]).untar.collect{it[1]}
     ).toList()
 
