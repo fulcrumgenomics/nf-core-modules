@@ -26,5 +26,3 @@ workflow test_fqtk {
 
     FQTK ( ch_input, fastqs_with_paths )
 }
-
-
