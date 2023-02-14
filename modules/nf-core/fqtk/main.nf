@@ -9,13 +9,14 @@ process FQTK {
 
     input:
     tuple val(meta), path(sample_sheet), path(fastq_dir)
-    val(fastq_readstructure_pairs)
+    val(fastq_readstructure_pairs) 
+    // fastq_readstructure_pair example:
+    // [[<fastq name: string>, <read structure: string>, <path to fastqs: path>], [example_R1.fastq.gz, 150T, ./work/98/30bc..78y/fastqs/]]
 
     output:
     tuple val(meta), path('output/*R*.fq.gz')                       , emit: sample_fastq
     tuple val(meta), path('output/demux-metrics.txt')               , emit: metrics
     tuple val(meta), path('output/unmatched*.fq.gz')                , emit: most_frequent_unmatched
-    // TODO: Nathan is adding version printing with fqtk
     path "versions.yml"                                             , emit: versions
 
 
