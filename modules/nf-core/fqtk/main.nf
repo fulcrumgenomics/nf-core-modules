@@ -8,8 +8,7 @@ process FQTK {
         'quay.io/biocontainers/fqtk:0.2.0--h9f5acd7_0' }"
 
     input:
-    tuple val(meta), path(sample_sheet), path(fastq_dir)
-    val(fastq_readstructure_pairs) 
+    tuple val(meta), path(sample_sheet), val(fastq_readstructure_pairs) 
     // fastq_readstructure_pair example:
     // [[<fastq name: string>, <read structure: string>, <path to fastqs: path>], [example_R1.fastq.gz, 150T, ./work/98/30bc..78y/fastqs/]]
 
