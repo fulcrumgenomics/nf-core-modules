@@ -22,7 +22,7 @@ workflow test_fqtk {
         ]).untar.collect{it[1]}
     ).toList()
 
-    ch_input = input.join(UNTAR.out.untar)
+    ch_input = input.merge( fastqs_with_paths ) { a,b -> tuple(a[0], a[1], b)}
 
-    FQTK ( ch_input, fastqs_with_paths )
+    FQTK ( ch_input )
 }
