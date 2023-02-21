@@ -16,18 +16,19 @@ workflow test_fqtk {
     // Merge channel lists
     fastqs = ch_fastqs.merge( ch_read_structures ) 
 
-    input = Channel.of ([ [ id:'sim-data'], // meta map
-            file("https://github.com/fulcrumgenomics/nf-core-test-datasets/raw/fqtk/testdata/sim-data/fqtk_sample_metadata_subset.tsv", checkIfExists: true)
-    ])
-
     fastqs_with_paths = fastqs.combine(
         UNTAR ([
             [ id:'sim-data' ],
             file("https://github.com/nf-core/test-datasets/blob/demultiplex/testdata/sim-data/fastq.tar.gz?raw=true", checkIfExists: true)
         ]).untar.collect{it[1]}).toList()
-
+0
+    
+        input = Channel.of ([ [ id:'sim-data'], // meta map
+            file("https://github.com/fulcrumgenomics/nf-core-test-datasets/raw/fqtk/testdata/sim-data/fqtk_sample_metadata_subset.tsv", checkIfExists: true),
+    ])
 
     ch_input = input.merge( fastqs_with_paths ) { a,b -> tuple(a[0], a[1], b)}
+    ch_input.view()
 
     FQTK ( ch_input )
 }
