@@ -4,7 +4,7 @@
     - fqtk
   files:
     - path: output/fqtk/output/demux-metrics.txt
-      md5sum: 22c6cc60294d15fb0211ae22abf22c02
+      md5sum: 1d587fa959f9129155314cf531103347
     - path: output/fqtk/output/s1.R1.fq.gz
       md5sum: c924aa78915504204e2d728bf47fbaa1
     - path: output/fqtk/output/s1.R2.fq.gz
@@ -81,9 +81,9 @@
       md5sum: fe9f3d22abe5155dd1a650e47c91344b
     - path: output/fqtk/output/s4.R2.fq.gz
       md5sum: dbc979ad76b36685a8373395f434a19f
-    - path: output/fqtk/output/s5 .R1.fq.gz
+    - path: output/fqtk/output/s5.R1.fq.gz
       md5sum: 95c381b3bea06dd5af2d0ef3ab6eb9ff
-    - path: output/fqtk/output/s5 .R2.fq.gz
+    - path: output/fqtk/output/s5.R2.fq.gz
       md5sum: c360c632bebaa24f9d9a5b9a7433314e
     - path: output/fqtk/output/s6.R1.fq.gz
       md5sum: 87ccde15e6f5915cbaf507d3be5b8203
