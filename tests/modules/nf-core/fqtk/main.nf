@@ -6,7 +6,7 @@ params.fastq_files = "out_L001_I1_001.fastq.gz out_L001_I2_001.fastq.gz out_L001
 params.read_structures = "8B 8B 150T 150T"
 
 include { FQTK  } from '../../../../modules/nf-core/fqtk/main.nf'
-include { UNTAR   } from '../../../../modules/nf-core/untar/main.nf'
+include { UNTAR   } from '../../../modules/nf-core/untar/main.nf'
 
 workflow test_fqtk { 
     // Split params into lists and put into channels 
@@ -21,14 +21,12 @@ workflow test_fqtk {
             [ id:'sim-data' ],
             file("https://github.com/nf-core/test-datasets/blob/demultiplex/testdata/sim-data/fastq.tar.gz?raw=true", checkIfExists: true)
         ]).untar.collect{it[1]}).toList()
-0
     
-        input = Channel.of ([ [ id:'sim-data'], // meta map
-            file("https://github.com/fulcrumgenomics/nf-core-test-datasets/raw/fqtk/testdata/sim-data/fqtk_sample_metadata_subset.tsv", checkIfExists: true),
+    input = Channel.of ([ [ id:'sim-data'], // meta map
+        file("https://github.com/nf-core/test-datasets/raw/demultiplex/testdata/sim-data/fqtk_sample_metadata_subset.tsv", checkIfExists: true),
     ])
 
     ch_input = input.merge( fastqs_with_paths ) { a,b -> tuple(a[0], a[1], b)}
-    ch_input.view()
 
     FQTK ( ch_input )
 }
